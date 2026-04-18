@@ -1,0 +1,55 @@
+[Sat Apr 18 21:02:55 2026] PHP 8.3.6 Development Server (http://localhost:8000) started
+[Sat Apr 18 21:03:11 2026] [::1]:51292 Accepted
+[Sat Apr 18 21:03:11 2026] [::1]:51292 [200]: GET /index.php
+[Sat Apr 18 21:03:11 2026] [::1]:51292 Closing
+[Sat Apr 18 21:03:26 2026] [::1]:42436 Accepted
+[Sat Apr 18 21:03:26 2026] [::1]:42436 [200]: GET /login.php
+[Sat Apr 18 21:03:26 2026] [::1]:42436 Closing
+[Sat Apr 18 21:03:26 2026] [::1]:42448 Accepted
+[Sat Apr 18 21:03:26 2026] [::1]:42448 [200]: GET /upgrade.php
+[Sat Apr 18 21:03:26 2026] [::1]:42448 Closing
+[Sat Apr 18 21:04:37 2026] [::1]:33218 Accepted
+[Sat Apr 18 21:04:37 2026] [::1]:33218 [200]: GET /login.php
+[Sat Apr 18 21:04:37 2026] [::1]:33218 Closing
+[Sat Apr 18 21:04:37 2026] [::1]:33234 Accepted
+[Sat Apr 18 21:04:37 2026] [::1]:33240 Accepted
+[Sat Apr 18 21:04:37 2026] [::1]:33234 [200]: GET /js/parse-init.js
+[Sat Apr 18 21:04:37 2026] [::1]:33234 Closing
+[Sat Apr 18 21:04:37 2026] [::1]:33240 [200]: GET /js/main.js
+[Sat Apr 18 21:04:37 2026] [::1]:33240 Closing
+[Sat Apr 18 21:04:40 2026] [::1]:36800 Accepted
+[Sat Apr 18 21:04:40 2026] [::1]:36800 [200]: GET /register.php
+[Sat Apr 18 21:04:40 2026] [::1]:36800 Closing
+[Sat Apr 18 21:04:40 2026] [::1]:36804 Accepted
+[Sat Apr 18 21:04:40 2026] [::1]:36806 Accepted
+[Sat Apr 18 21:04:40 2026] [::1]:36804 [200]: GET /js/parse-init.js
+[Sat Apr 18 21:04:40 2026] [::1]:36804 Closing
+[Sat Apr 18 21:04:40 2026] [::1]:36806 [200]: GET /js/main.js
+[Sat Apr 18 21:04:40 2026] [::1]:36806 Closing
+[Sat Apr 18 21:04:48 2026] [::1]:36814 Accepted
+[Sat Apr 18 21:04:48 2026] [::1]:36814 [200]: GET /index.php
+[Sat Apr 18 21:04:48 2026] [::1]:36814 Closing
+[Sat Apr 18 21:04:49 2026] [::1]:36822 Accepted
+[Sat Apr 18 21:04:49 2026] [::1]:36828 Accepted
+[Sat Apr 18 21:04:49 2026] [::1]:36822 [200]: GET /js/parse-init.js
+[Sat Apr 18 21:04:49 2026] [::1]:36822 Closing
+[Sat Apr 18 21:04:49 2026] [::1]:36828 [200]: GET /js/main.js
+[Sat Apr 18 21:04:49 2026] [::1]:36828 Closing
+[Sat Apr 18 21:04:49 2026] [::1]:36842 Accepted
+[Sat Apr 18 21:04:49 2026] [::1]:36842 [200]: GET /predictions.php
+[Sat Apr 18 21:04:49 2026] [::1]:36842 Closing
+[Sat Apr 18 21:04:49 2026] [::1]:36854 Accepted
+[Sat Apr 18 21:04:49 2026] [::1]:36862 Accepted
+[Sat Apr 18 21:04:49 2026] [::1]:36854 [200]: GET /js/parse-init.js
+[Sat Apr 18 21:04:49 2026] [::1]:36862 [200]: GET /js/main.js
+[Sat Apr 18 21:04:49 2026] [::1]:36854 Closing
+[Sat Apr 18 21:04:49 2026] [::1]:36862 Closing
+[Sat Apr 18 21:04:50 2026] [::1]:36874 Accepted
+[Sat Apr 18 21:04:50 2026] [::1]:36874 [200]: GET /upgrade.php
+[Sat Apr 18 21:04:50 2026] [::1]:36874 Closing
+[Sat Apr 18 21:04:50 2026] [::1]:36884 Accepted
+[Sat Apr 18 21:04:50 2026] [::1]:36898 Accepted
+[Sat Apr 18 21:04:50 2026] [::1]:36884 [200]: GET /js/parse-init.js
+[Sat Apr 18 21:04:50 2026] [::1]:36898 [200]: GET /js/main.js
+[Sat Apr 18 21:04:50 2026] [::1]:36884 Closing
+[Sat Apr 18 21:04:50 2026] [::1]:36898 Closing
