@@ -91,14 +91,29 @@
                         datasets: [{
                             data: [45, 25, 20, 10],
                             backgroundColor: ['#4f46e5', '#ec4899', '#f59e0b', '#10b981'],
-                            borderWidth: 0
+                            borderWidth: 0,
+                            hoverOffset: 10
                         }]
                     },
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
                         plugins: {
-                            legend: { position: 'bottom', labels: { color: textColor } }
+                            legend: { position: 'bottom', labels: { color: textColor } },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed !== null) {
+                                            label += context.parsed + '% conversion rate';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
                         }
                     }
                 });

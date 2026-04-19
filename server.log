@@ -53,3 +53,231 @@
 [Sat Apr 18 21:04:50 2026] [::1]:36898 [200]: GET /js/main.js
 [Sat Apr 18 21:04:50 2026] [::1]:36884 Closing
 [Sat Apr 18 21:04:50 2026] [::1]:36898 Closing
+[Sun Apr 19 01:25:01 2026] [::1]:59042 Accepted
+[Sun Apr 19 01:25:01 2026] [::1]:59042 [200]: GET /index.php
+[Sun Apr 19 01:25:01 2026] [::1]:59042 Closing
+[Sun Apr 19 01:25:01 2026] [::1]:59044 Accepted
+[Sun Apr 19 01:25:01 2026] [::1]:59044 [200]: GET /customers.php
+[Sun Apr 19 01:25:01 2026] [::1]:59044 Closing
+[Sun Apr 19 01:25:01 2026] [::1]:59052 Accepted
+[Sun Apr 19 01:25:01 2026] [::1]:59052 [200]: GET /404.php
+[Sun Apr 19 01:25:01 2026] [::1]:59052 Closing
+[Sun Apr 19 01:25:01 2026] [::1]:59054 Accepted
+[Sun Apr 19 01:25:01 2026] [::1]:59054 [200]: GET /profile.php
+[Sun Apr 19 01:25:01 2026] [::1]:59054 Closing
+[Sun Apr 19 01:25:52 2026] [::1]:55212 Accepted
+[Sun Apr 19 01:25:52 2026] [::1]:55212 [200]: GET /login.php
+[Sun Apr 19 01:25:52 2026] [::1]:55212 Closing
+[Sun Apr 19 01:25:52 2026] [::1]:55226 Accepted
+[Sun Apr 19 01:25:52 2026] [::1]:55236 Accepted
+[Sun Apr 19 01:25:52 2026] [::1]:55226 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:25:52 2026] [::1]:55236 [200]: GET /js/main.js
+[Sun Apr 19 01:25:52 2026] [::1]:55226 Closing
+[Sun Apr 19 01:25:52 2026] [::1]:55236 Closing
+[Sun Apr 19 01:27:08 2026] [::1]:42512 Accepted
+[Sun Apr 19 01:27:08 2026] [::1]:42512 [200]: GET /login.php
+[Sun Apr 19 01:27:08 2026] [::1]:42512 Closing
+[Sun Apr 19 01:27:08 2026] [::1]:42526 Accepted
+[Sun Apr 19 01:27:08 2026] [::1]:42528 Accepted
+[Sun Apr 19 01:27:08 2026] [::1]:42526 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:27:08 2026] [::1]:42528 [200]: GET /js/main.js
+[Sun Apr 19 01:27:08 2026] [::1]:42526 Closing
+[Sun Apr 19 01:27:08 2026] [::1]:42528 Closing
+[Sun Apr 19 01:28:33 2026] [::1]:42470 Accepted
+[Sun Apr 19 01:28:33 2026] [::1]:42470 [200]: GET /login.php
+[Sun Apr 19 01:28:33 2026] [::1]:42470 Closing
+[Sun Apr 19 01:28:33 2026] [::1]:42484 Accepted
+[Sun Apr 19 01:28:33 2026] [::1]:42492 Accepted
+[Sun Apr 19 01:28:33 2026] [::1]:42484 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:28:33 2026] [::1]:42492 [200]: GET /js/main.js
+[Sun Apr 19 01:28:33 2026] [::1]:42484 Closing
+[Sun Apr 19 01:28:33 2026] [::1]:42492 Closing
+[Sun Apr 19 01:28:38 2026] [::1]:37326 Accepted
+[Sun Apr 19 01:28:38 2026] [::1]:37326 [200]: GET /customers.php
+[Sun Apr 19 01:28:38 2026] [::1]:37326 Closing
+[Sun Apr 19 01:28:38 2026] [::1]:37334 Accepted
+[Sun Apr 19 01:28:38 2026] [::1]:37344 Accepted
+[Sun Apr 19 01:28:38 2026] [::1]:37334 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:28:38 2026] [::1]:37344 [200]: GET /js/main.js
+[Sun Apr 19 01:28:38 2026] [::1]:37334 Closing
+[Sun Apr 19 01:28:38 2026] [::1]:37344 Closing
+[Sun Apr 19 01:28:39 2026] [::1]:37346 Accepted
+[Sun Apr 19 01:28:39 2026] [::1]:37346 [200]: GET /login.php
+[Sun Apr 19 01:28:39 2026] [::1]:37346 Closing
+[Sun Apr 19 01:28:39 2026] [::1]:37362 Accepted
+[Sun Apr 19 01:28:39 2026] [::1]:37364 Accepted
+[Sun Apr 19 01:28:39 2026] [::1]:37362 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:28:39 2026] [::1]:37364 [200]: GET /js/main.js
+[Sun Apr 19 01:28:39 2026] [::1]:37362 Closing
+[Sun Apr 19 01:28:39 2026] [::1]:37364 Closing
+[Sun Apr 19 01:29:42 2026] [::1]:39414 Accepted
+[Sun Apr 19 01:29:42 2026] [::1]:39414 [200]: GET /login.php
+[Sun Apr 19 01:29:42 2026] [::1]:39414 Closing
+[Sun Apr 19 01:29:42 2026] [::1]:39422 Accepted
+[Sun Apr 19 01:29:42 2026] [::1]:39432 Accepted
+[Sun Apr 19 01:29:42 2026] [::1]:39422 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:29:42 2026] [::1]:39422 Closing
+[Sun Apr 19 01:29:42 2026] [::1]:39432 [200]: GET /js/main.js
+[Sun Apr 19 01:29:42 2026] [::1]:39432 Closing
+[Sun Apr 19 01:29:47 2026] [::1]:33048 Accepted
+[Sun Apr 19 01:29:47 2026] [::1]:33048 [200]: GET /customers.php
+[Sun Apr 19 01:29:47 2026] [::1]:33048 Closing
+[Sun Apr 19 01:29:47 2026] [::1]:33052 Accepted
+[Sun Apr 19 01:29:47 2026] [::1]:33058 Accepted
+[Sun Apr 19 01:29:47 2026] [::1]:33052 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:29:47 2026] [::1]:33058 [200]: GET /js/main.js
+[Sun Apr 19 01:29:47 2026] [::1]:33052 Closing
+[Sun Apr 19 01:29:47 2026] [::1]:33058 Closing
+[Sun Apr 19 01:29:48 2026] [::1]:33064 Accepted
+[Sun Apr 19 01:29:48 2026] [::1]:33064 [200]: GET /login.php
+[Sun Apr 19 01:29:48 2026] [::1]:33064 Closing
+[Sun Apr 19 01:29:48 2026] [::1]:33068 Accepted
+[Sun Apr 19 01:29:48 2026] [::1]:33076 Accepted
+[Sun Apr 19 01:29:48 2026] [::1]:33068 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:29:48 2026] [::1]:33076 [200]: GET /js/main.js
+[Sun Apr 19 01:29:48 2026] [::1]:33068 Closing
+[Sun Apr 19 01:29:48 2026] [::1]:33076 Closing
+[Sun Apr 19 01:30:50 2026] [::1]:49122 Accepted
+[Sun Apr 19 01:30:50 2026] [::1]:49122 [200]: GET /login.php
+[Sun Apr 19 01:30:50 2026] [::1]:49122 Closing
+[Sun Apr 19 01:30:50 2026] [::1]:49128 Accepted
+[Sun Apr 19 01:30:50 2026] [::1]:49136 Accepted
+[Sun Apr 19 01:30:50 2026] [::1]:49128 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:30:50 2026] [::1]:49128 Closing
+[Sun Apr 19 01:30:50 2026] [::1]:49136 [200]: GET /js/main.js
+[Sun Apr 19 01:30:50 2026] [::1]:49136 Closing
+[Sun Apr 19 01:30:56 2026] [::1]:49146 Accepted
+[Sun Apr 19 01:30:56 2026] [::1]:49146 [200]: GET /customers.php
+[Sun Apr 19 01:30:56 2026] [::1]:49146 Closing
+[Sun Apr 19 01:30:56 2026] [::1]:49152 Accepted
+[Sun Apr 19 01:30:56 2026] [::1]:49162 Accepted
+[Sun Apr 19 01:30:56 2026] [::1]:49152 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:30:56 2026] [::1]:49162 [200]: GET /js/main.js
+[Sun Apr 19 01:30:56 2026] [::1]:49152 Closing
+[Sun Apr 19 01:30:56 2026] [::1]:49162 Closing
+[Sun Apr 19 01:30:56 2026] [::1]:49176 Accepted
+[Sun Apr 19 01:30:56 2026] [::1]:49176 [200]: GET /login.php
+[Sun Apr 19 01:30:56 2026] [::1]:49176 Closing
+[Sun Apr 19 01:30:56 2026] [::1]:49182 Accepted
+[Sun Apr 19 01:30:56 2026] [::1]:49182 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:30:56 2026] [::1]:49182 Closing
+[Sun Apr 19 01:30:56 2026] [::1]:49188 Accepted
+[Sun Apr 19 01:30:56 2026] [::1]:49188 [200]: GET /js/main.js
+[Sun Apr 19 01:30:56 2026] [::1]:49188 Closing
+[Sun Apr 19 01:32:00 2026] [::1]:34954 Accepted
+[Sun Apr 19 01:32:00 2026] [::1]:34954 [200]: GET /login.php
+[Sun Apr 19 01:32:00 2026] [::1]:34954 Closing
+[Sun Apr 19 01:32:00 2026] [::1]:34956 Accepted
+[Sun Apr 19 01:32:00 2026] [::1]:34968 Accepted
+[Sun Apr 19 01:32:00 2026] [::1]:34956 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:32:00 2026] [::1]:34956 Closing
+[Sun Apr 19 01:32:00 2026] [::1]:34968 [200]: GET /js/main.js
+[Sun Apr 19 01:32:00 2026] [::1]:34968 Closing
+[Sun Apr 19 01:32:05 2026] [::1]:34980 Accepted
+[Sun Apr 19 01:32:05 2026] [::1]:34980 [200]: GET /customers.php
+[Sun Apr 19 01:32:05 2026] [::1]:34980 Closing
+[Sun Apr 19 01:32:05 2026] [::1]:34982 Accepted
+[Sun Apr 19 01:32:05 2026] [::1]:34990 Accepted
+[Sun Apr 19 01:32:05 2026] [::1]:34982 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:32:05 2026] [::1]:34982 Closing
+[Sun Apr 19 01:32:05 2026] [::1]:34990 [200]: GET /js/main.js
+[Sun Apr 19 01:32:05 2026] [::1]:34990 Closing
+[Sun Apr 19 01:32:05 2026] [::1]:34998 Accepted
+[Sun Apr 19 01:32:05 2026] [::1]:34998 [200]: GET /login.php
+[Sun Apr 19 01:32:05 2026] [::1]:34998 Closing
+[Sun Apr 19 01:32:05 2026] [::1]:35014 Accepted
+[Sun Apr 19 01:32:05 2026] [::1]:35018 Accepted
+[Sun Apr 19 01:32:05 2026] [::1]:35014 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:32:05 2026] [::1]:35018 [200]: GET /js/main.js
+[Sun Apr 19 01:32:05 2026] [::1]:35014 Closing
+[Sun Apr 19 01:32:05 2026] [::1]:35018 Closing
+[Sun Apr 19 01:33:19 2026] [::1]:41190 Accepted
+[Sun Apr 19 01:33:19 2026] [::1]:41190 [200]: GET /login.php
+[Sun Apr 19 01:33:19 2026] [::1]:41190 Closing
+[Sun Apr 19 01:33:19 2026] [::1]:41192 Accepted
+[Sun Apr 19 01:33:19 2026] [::1]:41206 Accepted
+[Sun Apr 19 01:33:19 2026] [::1]:41192 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:33:19 2026] [::1]:41206 [200]: GET /js/main.js
+[Sun Apr 19 01:33:19 2026] [::1]:41192 Closing
+[Sun Apr 19 01:33:19 2026] [::1]:41206 Closing
+[Sun Apr 19 01:33:24 2026] [::1]:41220 Accepted
+[Sun Apr 19 01:33:24 2026] [::1]:41220 [200]: GET /index.php
+[Sun Apr 19 01:33:24 2026] [::1]:41220 Closing
+[Sun Apr 19 01:33:24 2026] [::1]:41224 Accepted
+[Sun Apr 19 01:33:24 2026] [::1]:41240 Accepted
+[Sun Apr 19 01:33:24 2026] [::1]:41224 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:33:24 2026] [::1]:41240 [200]: GET /js/main.js
+[Sun Apr 19 01:33:24 2026] [::1]:41224 Closing
+[Sun Apr 19 01:33:24 2026] [::1]:41240 Closing
+[Sun Apr 19 01:33:25 2026] [::1]:41252 Accepted
+[Sun Apr 19 01:33:25 2026] [::1]:41252 [200]: GET /login.php
+[Sun Apr 19 01:33:25 2026] [::1]:41252 Closing
+[Sun Apr 19 01:33:25 2026] [::1]:41268 Accepted
+[Sun Apr 19 01:33:25 2026] [::1]:41284 Accepted
+[Sun Apr 19 01:33:25 2026] [::1]:41268 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:33:25 2026] [::1]:41284 [200]: GET /js/main.js
+[Sun Apr 19 01:33:25 2026] [::1]:41268 Closing
+[Sun Apr 19 01:33:25 2026] [::1]:41284 Closing
+[Sun Apr 19 01:33:26 2026] [::1]:41298 Accepted
+[Sun Apr 19 01:33:26 2026] [::1]:41298 [200]: GET /predictions.php
+[Sun Apr 19 01:33:26 2026] [::1]:41298 Closing
+[Sun Apr 19 01:33:26 2026] [::1]:41306 Accepted
+[Sun Apr 19 01:33:26 2026] [::1]:41308 Accepted
+[Sun Apr 19 01:33:26 2026] [::1]:41306 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:33:26 2026] [::1]:41308 [200]: GET /js/main.js
+[Sun Apr 19 01:33:26 2026] [::1]:41306 Closing
+[Sun Apr 19 01:33:26 2026] [::1]:41308 Closing
+[Sun Apr 19 01:33:26 2026] [::1]:41322 Accepted
+[Sun Apr 19 01:33:26 2026] [::1]:41322 [200]: GET /login.php
+[Sun Apr 19 01:33:26 2026] [::1]:41322 Closing
+[Sun Apr 19 01:33:26 2026] [::1]:41332 Accepted
+[Sun Apr 19 01:33:26 2026] [::1]:41346 Accepted
+[Sun Apr 19 01:33:26 2026] [::1]:41332 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:33:26 2026] [::1]:41346 [200]: GET /js/main.js
+[Sun Apr 19 01:33:26 2026] [::1]:41332 Closing
+[Sun Apr 19 01:33:26 2026] [::1]:41346 Closing
+[Sun Apr 19 01:34:29 2026] [::1]:54876 Accepted
+[Sun Apr 19 01:34:29 2026] [::1]:54876 [200]: GET /login.php
+[Sun Apr 19 01:34:29 2026] [::1]:54876 Closing
+[Sun Apr 19 01:34:29 2026] [::1]:54878 Accepted
+[Sun Apr 19 01:34:29 2026] [::1]:54892 Accepted
+[Sun Apr 19 01:34:29 2026] [::1]:54878 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:34:29 2026] [::1]:54878 Closing
+[Sun Apr 19 01:34:29 2026] [::1]:54892 [200]: GET /js/main.js
+[Sun Apr 19 01:34:29 2026] [::1]:54892 Closing
+[Sun Apr 19 01:34:35 2026] [::1]:54904 Accepted
+[Sun Apr 19 01:34:35 2026] [::1]:54904 [200]: GET /index.php
+[Sun Apr 19 01:34:35 2026] [::1]:54904 Closing
+[Sun Apr 19 01:34:35 2026] [::1]:54918 Accepted
+[Sun Apr 19 01:34:35 2026] [::1]:54932 Accepted
+[Sun Apr 19 01:34:35 2026] [::1]:54918 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:34:35 2026] [::1]:54932 [200]: GET /js/main.js
+[Sun Apr 19 01:34:35 2026] [::1]:54918 Closing
+[Sun Apr 19 01:34:35 2026] [::1]:54932 Closing
+[Sun Apr 19 01:34:35 2026] [::1]:54940 Accepted
+[Sun Apr 19 01:34:35 2026] [::1]:54940 [200]: GET /login.php
+[Sun Apr 19 01:34:35 2026] [::1]:54940 Closing
+[Sun Apr 19 01:34:36 2026] [::1]:54950 Accepted
+[Sun Apr 19 01:34:36 2026] [::1]:54952 Accepted
+[Sun Apr 19 01:34:36 2026] [::1]:54950 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:34:36 2026] [::1]:54952 [200]: GET /js/main.js
+[Sun Apr 19 01:34:36 2026] [::1]:54950 Closing
+[Sun Apr 19 01:34:36 2026] [::1]:54952 Closing
+[Sun Apr 19 01:34:37 2026] [::1]:54958 Accepted
+[Sun Apr 19 01:34:37 2026] [::1]:54958 [200]: GET /predictions.php
+[Sun Apr 19 01:34:37 2026] [::1]:54958 Closing
+[Sun Apr 19 01:34:37 2026] [::1]:54966 Accepted
+[Sun Apr 19 01:34:37 2026] [::1]:54976 Accepted
+[Sun Apr 19 01:34:37 2026] [::1]:54966 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:34:37 2026] [::1]:54976 [200]: GET /js/main.js
+[Sun Apr 19 01:34:37 2026] [::1]:54966 Closing
+[Sun Apr 19 01:34:37 2026] [::1]:54976 Closing
+[Sun Apr 19 01:34:37 2026] [::1]:38870 Accepted
+[Sun Apr 19 01:34:37 2026] [::1]:38870 [200]: GET /login.php
+[Sun Apr 19 01:34:37 2026] [::1]:38870 Closing
+[Sun Apr 19 01:34:37 2026] [::1]:38886 Accepted
+[Sun Apr 19 01:34:37 2026] [::1]:38902 Accepted
+[Sun Apr 19 01:34:37 2026] [::1]:38886 [200]: GET /js/parse-init.js
+[Sun Apr 19 01:34:37 2026] [::1]:38886 Closing
+[Sun Apr 19 01:34:37 2026] [::1]:38902 [200]: GET /js/main.js
+[Sun Apr 19 01:34:37 2026] [::1]:38902 Closing

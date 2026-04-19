@@ -4,10 +4,48 @@ function toggleTheme() {
     if (isDark) {
         document.documentElement.classList.remove('dark');
         localStorage.setItem('theme', 'light');
+        showToast('Switched to Light Mode', 'success');
     } else {
         document.documentElement.classList.add('dark');
         localStorage.setItem('theme', 'dark');
+        showToast('Switched to Dark Mode', 'success');
     }
+}
+
+// Toast Notification System
+function showToast(message, type = 'success') {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+
+    const toast = document.createElement('div');
+
+    // Define colors based on type
+    const colors = {
+        success: 'bg-green-100 text-green-800 border-green-500',
+        error: 'bg-red-100 text-red-800 border-red-500',
+        info: 'bg-blue-100 text-blue-800 border-blue-500'
+    };
+
+    const icons = {
+        success: 'fa-check-circle',
+        error: 'fa-exclamation-circle',
+        info: 'fa-info-circle'
+    };
+
+    toast.className = `flex items-center p-4 border-l-4 rounded shadow-md toast-enter ${colors[type] || colors.info} dark:bg-gray-800 dark:text-white`;
+    toast.innerHTML = `
+        <i class="fas ${icons[type] || icons.info} text-xl mr-3"></i>
+        <div class="text-sm font-medium">${message}</div>
+    `;
+
+    container.appendChild(toast);
+
+    // Remove toast after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove('toast-enter');
+        toast.classList.add('toast-exit');
+        setTimeout(() => toast.remove(), 300); // Wait for exit animation
+    }, 3000);
 }
 
 // Initialize theme
@@ -36,18 +74,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
-
-// Helper for showing Pro functionality
-function checkProAccess(actionDescription = 'access this feature') {
-    const currentUser = Parse.User.current();
-    if (!currentUser) return false;
-
-    if (!currentUser.get('isPro')) {
-        const wantsToUpgrade = confirm(`You need a Pro account to ${actionDescription}. Would you like to upgrade now?`);
-        if (wantsToUpgrade) {
-            window.location.href = '/upgrade.php';
-        }
-        return false;
-    }
-    return true;
-}

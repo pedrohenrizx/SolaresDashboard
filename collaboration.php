@@ -15,7 +15,6 @@
         <main class="flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto">
             <h2 class="text-2xl font-bold mb-6 flex items-center">
                 Team Collaboration
-                <span class="ml-3 bg-yellow-500 text-black text-xs px-2 py-1 rounded font-bold uppercase tracking-wider">Pro Feature</span>
             </h2>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -70,11 +69,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            setTimeout(() => {
-                if(checkProAccess('access Team Collaboration')) {
-                    document.getElementById('page-body').classList.remove('hidden');
-                }
-            }, 500);
+            document.getElementById('page-body').classList.remove('hidden');
         });
     </script>
 </body>
