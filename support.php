@@ -77,6 +77,18 @@
                             <i class="fas fa-paper-plane mr-2"></i> Send Message
                         </button>
                     </form>
+
+                    <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+                        <h4 class="font-medium mb-4">Direct Contact</h4>
+                        <div class="space-y-3 text-sm">
+                            <a href="mailto:pedrohenri.craftmourazx@gmail.com" class="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">
+                                <i class="fas fa-envelope mr-3 text-primary"></i> pedrohenri.craftmourazx@gmail.com
+                            </a>
+                            <a href="https://wa.me/5522992685896" target="_blank" class="flex items-center text-gray-600 dark:text-gray-400 hover:text-green-500 transition-colors">
+                                <i class="fab fa-whatsapp mr-3 text-green-500 text-lg"></i> (22) 99268-5896
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 

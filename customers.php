@@ -17,17 +17,11 @@
             <div class="mb-6 flex flex-col sm:flex-row justify-between items-center gap-4">
                 <h2 class="text-2xl font-bold">Advanced Segmentation</h2>
                 <div class="flex gap-2">
-                    <button onclick="showToast('Exporting CSV...', 'info')" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors flex items-center shadow-sm">
+                    <a href="/reports.php" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors flex items-center shadow-sm">
                         <i class="fas fa-file-csv mr-2"></i> Export
-                    </button>
-                    <select class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm px-4 py-2 focus:ring-primary focus:border-primary">
-                        <option>Location</option>
-                        <option>Purchase Frequency</option>
-                        <option>Avg Spent</option>
-                        <option>Status</option>
-                    </select>
-                    <button class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors shadow-sm">
-                        Apply Filter
+                    </a>
+                    <button id="add-customer-btn" onclick="window.openAddCustomerModal()" class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors shadow-sm flex items-center">
+                        <i class="fas fa-plus mr-2"></i> Add Customer
                     </button>
                 </div>
             </div>
@@ -63,37 +57,20 @@
                             <tr>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Customer</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Location</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Category</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Status</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Total Spent</th>
+                                <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">Jane Doe</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">New York, NY</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Loyal</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">$1,250</td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">John Smith</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">London, UK</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">New</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">$120</td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer" onclick="document.getElementById('customer-modal').classList.remove('hidden')">
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary">Alice Johnson</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Sydney, AU</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Inactive</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">$840</td>
-                            </tr>
+                        <tbody id="customer-table-body" class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                            <!-- Populated via JS -->
                         </tbody>
                     </table>
+
+                    <div id="table-spinner" class="flex justify-center p-8 hidden">
+                        <i class="fas fa-circle-notch fa-spin text-3xl text-primary"></i>
+                    </div>
                 </div>
 
                 <!-- Pagination Mockup -->
@@ -138,48 +115,73 @@
         </main>
     </div>
 
-    <!-- Customer Detail Modal -->
+    <!-- Customer Add/Edit Modal -->
     <div id="customer-modal" class="hidden fixed inset-0 z-50 overflow-hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
         <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity" onclick="document.getElementById('customer-modal').classList.add('hidden')"></div>
+            <div class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity" onclick="window.closeCustomerModal()"></div>
             <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
                 <div class="pointer-events-auto w-screen max-w-md">
-                    <div class="flex h-full flex-col overflow-y-scroll bg-white dark:bg-gray-800 shadow-xl">
+                    <form id="customer-form" class="flex h-full flex-col overflow-y-scroll bg-white dark:bg-gray-800 shadow-xl">
                         <div class="bg-primary px-4 py-6 sm:px-6 text-white flex items-center justify-between">
-                            <h2 class="text-lg font-medium" id="slide-over-title">Customer Profile</h2>
-                            <button type="button" class="rounded-md text-white hover:text-gray-200 focus:outline-none" onclick="document.getElementById('customer-modal').classList.add('hidden')">
+                            <h2 class="text-lg font-medium" id="modal-title">Add New Customer</h2>
+                            <button type="button" class="rounded-md text-white hover:text-gray-200 focus:outline-none" onclick="window.closeCustomerModal()">
                                 <span class="sr-only">Close panel</span>
                                 <i class="fas fa-times text-xl"></i>
                             </button>
                         </div>
                         <div class="relative flex-1 px-4 py-6 sm:px-6">
-                            <div class="text-center mb-6">
-                                <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 flex items-center justify-center text-2xl font-bold text-gray-500">AJ</div>
-                                <h3 class="text-xl font-bold">Alice Johnson</h3>
-                                <p class="text-sm text-gray-500">Inactive Customer • Sydney, AU</p>
-                            </div>
+                            <input type="hidden" id="customer-id">
+
                             <div class="space-y-4">
                                 <div>
-                                    <p class="text-sm font-medium text-gray-500">Total Spent</p>
-                                    <p class="mt-1 text-lg font-semibold">$840.00</p>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
+                                    <input type="text" id="customer-name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white">
                                 </div>
+
                                 <div>
-                                    <p class="text-sm font-medium text-gray-500">Last Purchase</p>
-                                    <p class="mt-1 text-sm">October 12, 2023</p>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Location</label>
+                                    <input type="text" id="customer-location" required class="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white">
                                 </div>
-                                <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
-                                    <button onclick="showToast('Re-engagement email sent', 'success')" class="w-full flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700">
-                                        <i class="fas fa-paper-plane mr-2"></i> Send Re-engagement Email
-                                    </button>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Category</label>
+                                    <select id="customer-category" required class="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white">
+                                        <option value="Retail">Retail</option>
+                                        <option value="Enterprise">Enterprise</option>
+                                        <option value="Wholesale">Wholesale</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Status</label>
+                                    <select id="customer-status" required class="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white">
+                                        <option value="Loyal">Loyal</option>
+                                        <option value="New">New</option>
+                                        <option value="Recurring">Recurring</option>
+                                        <option value="Inactive">Inactive</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Total Spent ($)</label>
+                                    <input type="number" id="customer-spent" required min="0" step="0.01" class="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white">
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="flex flex-shrink-0 justify-end px-4 py-4 border-t border-gray-200 dark:border-gray-700">
+                            <button type="button" class="rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none" onclick="window.closeCustomerModal()">Cancel</button>
+                            <button type="submit" id="save-customer-btn" class="ml-4 inline-flex justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-600 focus:outline-none">
+                                <span id="save-btn-text">Save</span>
+                                <i id="save-btn-spinner" class="fas fa-spinner fa-spin ml-2 hidden mt-0.5"></i>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="/js/parse-customers.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             if(typeof Chart !== 'undefined') {
@@ -187,7 +189,7 @@
                 const textColor = isDark ? '#e5e7eb' : '#374151';
 
                 const ctx = document.getElementById('segmentationChart').getContext('2d');
-                new Chart(ctx, {
+                window.segmentationChart = new Chart(ctx, {
                     type: 'doughnut',
                     data: {
                         labels: ['Loyal', 'New', 'Recurring', 'Inactive'],

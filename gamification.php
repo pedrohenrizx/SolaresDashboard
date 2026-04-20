@@ -21,27 +21,9 @@
                 <!-- Leaderboard -->
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
                     <h3 class="text-lg font-semibold mb-4 text-center"><i class="fas fa-crown text-yellow-500 mr-2"></i> Team Leaderboard</h3>
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded border border-yellow-200 dark:border-yellow-700">
-                            <div class="flex items-center">
-                                <span class="text-xl font-bold text-yellow-600 mr-4 w-6 text-center">1</span>
-                                <span class="font-medium">Sarah Jenkins (Sales)</span>
-                            </div>
-                            <span class="font-bold text-primary">2,450 pts</span>
-                        </div>
-                        <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded">
-                            <div class="flex items-center">
-                                <span class="text-xl font-bold text-gray-500 mr-4 w-6 text-center">2</span>
-                                <span class="font-medium">Mike Ross (Support)</span>
-                            </div>
-                            <span class="font-bold text-primary">1,890 pts</span>
-                        </div>
-                        <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded">
-                            <div class="flex items-center">
-                                <span class="text-xl font-bold text-orange-400 mr-4 w-6 text-center">3</span>
-                                <span class="font-medium">Elena Gilbert (Marketing)</span>
-                            </div>
-                            <span class="font-bold text-primary">1,620 pts</span>
+                    <div class="space-y-2" id="leaderboard-container">
+                        <div class="flex justify-center p-4">
+                            <i class="fas fa-circle-notch fa-spin text-2xl text-primary"></i>
                         </div>
                     </div>
                 </div>
@@ -83,5 +65,6 @@
             document.getElementById('page-body').classList.remove('hidden');
         });
     </script>
+    <script src="/js/parse-gamification.js"></script>
 </body>
 </html>

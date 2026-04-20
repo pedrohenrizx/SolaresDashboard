@@ -37,13 +37,13 @@
 
             <!-- KPI Cards -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 flex items-center">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 flex items-center relative overflow-hidden">
                     <div class="p-3 rounded-full bg-blue-100 text-blue-600 mr-4">
                         <i class="fas fa-users text-xl"></i>
                     </div>
                     <div>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Active Customers</p>
-                        <p class="text-2xl font-bold">1,248</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Total Customers</p>
+                        <p class="text-2xl font-bold" id="kpi-customers">...</p>
                     </div>
                 </div>
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 flex items-center">
@@ -61,7 +61,7 @@
                     </div>
                     <div>
                         <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Avg. Revenue</p>
-                        <p class="text-2xl font-bold">$142.50</p>
+                        <p class="text-2xl font-bold" id="kpi-revenue">...</p>
                     </div>
                 </div>
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 flex items-center">
@@ -70,7 +70,7 @@
                     </div>
                     <div>
                         <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Retention Rate</p>
-                        <p class="text-2xl font-bold">84%</p>
+                        <p class="text-2xl font-bold" id="kpi-retention">...</p>
                     </div>
                 </div>
             </div>
@@ -133,13 +133,52 @@
         </main>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', async function() {
             // Wait for Chart.js to be available
             if(typeof Chart !== 'undefined') {
                 const isDark = document.documentElement.classList.contains('dark');
                 const textColor = isDark ? '#e5e7eb' : '#374151';
                 const gridColor = isDark ? '#374151' : '#e5e7eb';
+
+                // Fetch Data from Parse
+                let totalCustomers = 0;
+                let totalSpent = 0;
+                let activeCount = 0;
+                let monthCounts = {0:0, 1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0, 11:0};
+
+                try {
+                    const Customer = Parse.Object.extend("Customer");
+                    const query = new Parse.Query(Customer);
+                    query.limit(1000); // For demo purposes
+                    const results = await query.find();
+
+                    totalCustomers = results.length;
+
+                    results.forEach(c => {
+                        totalSpent += c.get('totalSpent') || 0;
+                        if (c.get('status') !== 'Inactive') {
+                            activeCount++;
+                        }
+
+                        // Group by month created for growth chart
+                        const createdAt = c.createdAt;
+                        if(createdAt) {
+                            monthCounts[createdAt.getMonth()]++;
+                        }
+                    });
+
+                    // Update KPIs
+                    document.getElementById('kpi-customers').textContent = totalCustomers;
+                    const avgRev = totalCustomers > 0 ? (totalSpent / totalCustomers) : 0;
+                    document.getElementById('kpi-revenue').textContent = `$${avgRev.toFixed(2)}`;
+
+                    const retention = totalCustomers > 0 ? ((activeCount / totalCustomers) * 100).toFixed(1) : 0;
+                    document.getElementById('kpi-retention').textContent = `${retention}%`;
+
+                } catch (error) {
+                    showToast("Error loading dashboard data: " + error.message, "error");
+                }
 
                 // Chart Configuration Helper
                 const commonOptions = {
@@ -154,15 +193,28 @@
                     }
                 };
 
+                // Generate Cumulative Growth Data
+                const currentMonth = new Date().getMonth();
+                const labels = [];
+                const growthData = [];
+                let cumulative = 0;
+
+                const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                for (let i = 0; i <= currentMonth; i++) {
+                    labels.push(monthNames[i]);
+                    cumulative += monthCounts[i];
+                    growthData.push(cumulative);
+                }
+
                 // Growth Chart
                 const ctxGrowth = document.getElementById('growthChart').getContext('2d');
                 new Chart(ctxGrowth, {
                     type: 'line',
                     data: {
-                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                        labels: labels,
                         datasets: [{
                             label: 'Total Customers',
-                            data: [800, 950, 1020, 1100, 1180, 1248],
+                            data: growthData,
                             borderColor: '#4f46e5',
                             backgroundColor: 'rgba(79, 70, 229, 0.1)',
                             fill: true,
@@ -180,7 +232,7 @@
                         labels: ['Q1', 'Q2', 'Q3', 'Q4'],
                         datasets: [{
                             label: 'Retention Rate %',
-                            data: [82, 85, 83, 84],
+                            data: [82, 85, 83, 84], // Mock data as quarterly calculation is complex
                             backgroundColor: '#10b981',
                         }]
                     },

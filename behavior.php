@@ -30,7 +30,7 @@
 
                 <!-- Acquisition Channels -->
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-                    <h3 class="text-lg font-semibold mb-4">Acquisition Channels</h3>
+                    <h3 class="text-lg font-semibold mb-4">Customer Categories</h3>
                     <div class="relative h-64">
                         <canvas id="channelsChart"></canvas>
                     </div>
@@ -39,37 +39,10 @@
 
             <!-- Popular Products -->
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-                <h3 class="text-lg font-semibold mb-4">Top Products/Services</h3>
-                <div class="space-y-4">
-                    <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded">
-                        <div class="flex items-center">
-                            <div class="w-10 h-10 bg-primary rounded flex items-center justify-center text-white font-bold mr-4">1</div>
-                            <div>
-                                <p class="font-medium">Premium Subscription</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">450 purchases this month</p>
-                            </div>
-                        </div>
-                        <span class="text-green-500 font-semibold"><i class="fas fa-arrow-up mr-1"></i>12%</span>
-                    </div>
-                    <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded">
-                        <div class="flex items-center">
-                            <div class="w-10 h-10 bg-blue-500 rounded flex items-center justify-center text-white font-bold mr-4">2</div>
-                            <div>
-                                <p class="font-medium">Consulting Package</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">320 purchases this month</p>
-                            </div>
-                        </div>
-                        <span class="text-green-500 font-semibold"><i class="fas fa-arrow-up mr-1"></i>5%</span>
-                    </div>
-                    <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded">
-                        <div class="flex items-center">
-                            <div class="w-10 h-10 bg-purple-500 rounded flex items-center justify-center text-white font-bold mr-4">3</div>
-                            <div>
-                                <p class="font-medium">Basic Plan</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">210 purchases this month</p>
-                            </div>
-                        </div>
-                        <span class="text-red-500 font-semibold"><i class="fas fa-arrow-down mr-1"></i>2%</span>
+                <h3 class="text-lg font-semibold mb-4">Top Categories (Dynamic)</h3>
+                <div class="space-y-4" id="category-list">
+                    <div class="flex justify-center p-4">
+                        <i class="fas fa-circle-notch fa-spin text-2xl text-primary"></i>
                     </div>
                 </div>
             </div>
@@ -78,19 +51,68 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', async function() {
             if(typeof Chart !== 'undefined') {
                 const isDark = document.documentElement.classList.contains('dark');
                 const textColor = isDark ? '#e5e7eb' : '#374151';
+
+                let retailCount = 0;
+                let enterpriseCount = 0;
+                let wholesaleCount = 0;
+
+                try {
+                    const Customer = Parse.Object.extend("Customer");
+                    const query = new Parse.Query(Customer);
+                    const results = await query.find();
+
+                    results.forEach(c => {
+                        const cat = c.get('category');
+                        if (cat === 'Retail') retailCount++;
+                        if (cat === 'Enterprise') enterpriseCount++;
+                        if (cat === 'Wholesale') wholesaleCount++;
+                    });
+
+                    // Populate Top Categories List
+                    const listContainer = document.getElementById('category-list');
+                    listContainer.innerHTML = '';
+
+                    const categories = [
+                        { name: 'Retail', count: retailCount, color: 'bg-primary' },
+                        { name: 'Enterprise', count: enterpriseCount, color: 'bg-blue-500' },
+                        { name: 'Wholesale', count: wholesaleCount, color: 'bg-purple-500' }
+                    ].sort((a, b) => b.count - a.count);
+
+                    function escapeHTML(str) {
+                        return new Option(str).innerHTML;
+                    }
+
+                    categories.forEach((cat, index) => {
+                        const safeName = escapeHTML(cat.name);
+                        listContainer.innerHTML += `
+                            <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 ${cat.color} rounded flex items-center justify-center text-white font-bold mr-4">${index + 1}</div>
+                                    <div>
+                                        <p class="font-medium">${safeName}</p>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400">${cat.count} customers</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                } catch (error) {
+                    showToast("Error loading behavior data: " + error.message, "error");
+                }
 
                 const ctx = document.getElementById('channelsChart').getContext('2d');
                 new Chart(ctx, {
                     type: 'pie',
                     data: {
-                        labels: ['Organic Search', 'Social Media', 'Direct', 'Referral'],
+                        labels: ['Retail', 'Enterprise', 'Wholesale'],
                         datasets: [{
-                            data: [45, 25, 20, 10],
-                            backgroundColor: ['#4f46e5', '#ec4899', '#f59e0b', '#10b981'],
+                            data: [retailCount, enterpriseCount, wholesaleCount],
+                            backgroundColor: ['#4f46e5', '#3b82f6', '#a855f7'],
                             borderWidth: 0,
                             hoverOffset: 10
                         }]
